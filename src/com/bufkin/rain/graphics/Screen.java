@@ -1,15 +1,25 @@
 package com.bufkin.rain.graphics;
 
+import java.util.Random;
+
 public class Screen {
 
-    public int[] pixels;
+
     private int width;
     private int height;
+    public int[] pixels;
+    public int[] tiles = new int[64 * 64];
+
+    private Random random = new Random();
 
     public Screen(int width, int height) {
         this.width = width;
         this.height = height;
         this.pixels = new int[width * height];
+
+        for (int i = 0; i < this.tiles.length; i++) {
+            this.tiles[i] = this.random.nextInt(0xffffff);
+        }
     }
 
     public void clear() {
@@ -20,8 +30,11 @@ public class Screen {
 
     public void render() {
         for (int y = 0; y < this.height; y++) {
+            if (y < 0 || y >= this.height) break;
             for (int x = 0; x < this.width; x++) {
-                this.pixels[30 + 40 * this.width] = 0xff00ff;
+                if (x < 0 || x >= this.width) break;
+                int tileIndex = (x >> 4) + (y >> 4) * 64;
+                this.pixels[x + y * this.width] = this.tiles[tileIndex];
             }
         }
     }
