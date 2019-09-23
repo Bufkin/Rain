@@ -3,8 +3,6 @@ package com.bufkin.rain.graphics;
 public class Screen {
 
     public int[] pixels;
-    int time = 0;
-    int counter = 0;
     private int width;
     private int height;
 
@@ -21,13 +19,9 @@ public class Screen {
     }
 
     public void render() {
-        this.counter++;
-        if (this.counter % 100 == 0) {
-            this.time++;
-        }
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
-                this.pixels[this.time + this.time * this.width] = 0xff00ff;
+                this.pixels[30 + 40 * this.width] = 0xff00ff;
             }
         }
     }
