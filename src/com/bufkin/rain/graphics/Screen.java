@@ -30,10 +30,12 @@ public class Screen {
 
     public void render() {
         for (int y = 0; y < this.height; y++) {
-            if (y < 0 || y >= this.height) break;
+            int yy = y;
+            // if (yy < 0 || yy >= this.height) break;
             for (int x = 0; x < this.width; x++) {
-                if (x < 0 || x >= this.width) break;
-                int tileIndex = (x >> 4) + (y >> 4) * 64;
+                int xx = x;
+                //if (xx < 0 || xx >= this.width) break;
+                int tileIndex = ((xx >> 4) & 63) + ((yy >> 4) & 63) * 64;
                 this.pixels[x + y * this.width] = this.tiles[tileIndex];
             }
         }
