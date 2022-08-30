@@ -32,10 +32,12 @@ public class Screen {
 	public void render() {
 		for (int y = 0; y < this.height; y++) {
 			int yy = y;
-			// if (yy < 0 || yy >= this.height) break;
+			if (yy < 0 || yy >= this.height)
+				break;
 			for (int x = 0; x < this.width; x++) {
 				int xx = x;
-				// if (xx < 0 || xx >= this.width) break;
+				if (xx < 0 || xx >= this.width)
+					break;
 				int tileIndex = ((xx >> 4) & this.MAP_SIZE_MASK) + ((yy >> 4) & this.MAP_SIZE_MASK) * this.MAP_SIZE;
 				this.pixels[x + y * this.width] = this.tiles[tileIndex];
 			}
