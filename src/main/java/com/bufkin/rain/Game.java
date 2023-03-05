@@ -21,10 +21,10 @@ public class Game extends Canvas implements Runnable {
 
 	private Thread thread;
 	private JFrame frame;
-	private Keyboard key;
+	private main.java.com.bufkin.rain.input.Keyboard key;
 	private boolean running = false;
 
-	private Screen screen;
+	private main.java.com.bufkin.rain.graphics.Screen screen;
 
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt) this.image.getRaster().getDataBuffer()).getData();
